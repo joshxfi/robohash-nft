@@ -1,18 +1,12 @@
 import "reflect-metadata";
+import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server-micro";
 import { NextApiRequest, NextApiResponse } from "next";
-import { buildSchema, Resolver, Query } from "type-graphql";
 
-@Resolver()
-export class HelloResolver {
-  @Query(() => String)
-  hello() {
-    return "hello world!";
-  }
-}
+import { NftResolver } from "../../src/schema/nft.resolver";
 
 const schema = await buildSchema({
-  resolvers: [HelloResolver],
+  resolvers: [NftResolver],
 });
 
 const server = new ApolloServer({ schema });
