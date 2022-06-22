@@ -1,0 +1,8 @@
+query getNfts {
+  nfts {
+    id
+    img
+    collection_num
+    price
+  }
+}
