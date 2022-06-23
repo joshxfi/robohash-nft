@@ -3,7 +3,7 @@ import { ObjectType, Field, ID } from "type-graphql";
 @ObjectType()
 export class Nft {
   @Field(() => ID)
-  id: number;
+  id: string;
 
   @Field(() => String)
   img: string;

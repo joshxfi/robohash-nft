@@ -1,0 +1,10 @@
+query getNftById($id: ID!) {
+  nft(id: $id) {
+    collection_num 
+    owner
+    price
+    views
+    favorites
+    description
+  }
+}

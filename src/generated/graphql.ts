@@ -30,8 +30,21 @@ export type Nft = {
 
 export type Query = {
   __typename?: 'Query';
+  nft: Nft;
   nfts: Array<Nft>;
 };
+
+
+export type QueryNftArgs = {
+  id: Scalars['ID'];
+};
+
+export type GetNftByIdQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetNftByIdQuery = { __typename?: 'Query', nft: { __typename?: 'Nft', collection_num: number, owner: string, price: number, views: number, favorites: number, description: string } };
 
 export type GetNftsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -39,6 +52,18 @@ export type GetNftsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetNftsQuery = { __typename?: 'Query', nfts: Array<{ __typename?: 'Nft', id: string, img: string, collection_num: number, price: number }> };
 
 
+export const GetNftByIdDocument = gql`
+    query getNftById($id: ID!) {
+  nft(id: $id) {
+    collection_num
+    owner
+    price
+    views
+    favorites
+    description
+  }
+}
+    `;
 export const GetNftsDocument = gql`
     query getNfts {
   nfts {
@@ -57,6 +82,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    getNftById(variables: GetNftByIdQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetNftByIdQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetNftByIdQuery>(GetNftByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getNftById', 'query');
+    },
     getNfts(variables?: GetNftsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetNftsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetNftsQuery>(GetNftsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getNfts', 'query');
     }

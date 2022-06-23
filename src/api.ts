@@ -4,7 +4,7 @@ import { QueryClient } from "react-query";
 import { getSdk } from "./generated/graphql";
 
 const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_GQL_CLIENT);
-export const { getNfts } = getSdk(gqlClient);
+export const { getNfts, getNftById } = getSdk(gqlClient);
 
 export const queryClient = new QueryClient({
   defaultOptions: {
