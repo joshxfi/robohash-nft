@@ -10,8 +10,8 @@ const Home: NextPage = () => {
   const { data } = useQuery(["nfts"], () => getNfts());
 
   return (
-    <section className='font-mono'>
-      <ul className="grid grid-cols-5 gap-y-12">
+    <section>
+      <ul className="grid grid-cols-5 gap-2">
         {data?.nfts.map((nft) => (
           <li
             key={nft.id}
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
                 <div>
                   <h3 className='text-sm'>Price</h3>
                   <div className='flex items-center space-x-1 text-lg font-medium'>
-                    <FaEthereum className='text-[#5d78de]' />
+                    <FaEthereum className='text-primary' />
                     <p>{nft.price}</p>
                   </div>
                 </div>

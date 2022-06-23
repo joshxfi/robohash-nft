@@ -4,6 +4,12 @@
 
 @layer base {
   html {
-    @apply bg-[#121212] text-[#fafafa];
+    @apply font-mono bg-[#121212] text-[#fafafa];
+  }
+}
+
+@layer components {
+  .link {
+    @apply hover:text-[#ccc] transition-colors;
   }
 }
