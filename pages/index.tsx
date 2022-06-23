@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         {data?.nfts.map((nft) => (
           <li
             key={nft.id}
-            className="w-[250px] bg-[#181818] rounded justify-self-center"
+            className="w-[250px] bg-secondary rounded justify-self-center"
           >
             <Link href={`/nft/${encodeURIComponent(nft.id)}`}>
               <a>

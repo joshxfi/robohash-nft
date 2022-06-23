@@ -44,7 +44,7 @@ export type GetNftByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetNftByIdQuery = { __typename?: 'Query', nft: { __typename?: 'Nft', collection_num: number, owner: string, price: number, views: number, favorites: number, description: string } };
+export type GetNftByIdQuery = { __typename?: 'Query', nft: { __typename?: 'Nft', img: string, owner: string, price: number, views: number, favorites: number, description: string, collection_num: number } };
 
 export type GetNftsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -55,12 +55,13 @@ export type GetNftsQuery = { __typename?: 'Query', nfts: Array<{ __typename?: 'N
 export const GetNftByIdDocument = gql`
     query getNftById($id: ID!) {
   nft(id: $id) {
-    collection_num
+    img
     owner
     price
     views
     favorites
     description
+    collection_num
   }
 }
     `;

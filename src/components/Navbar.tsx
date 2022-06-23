@@ -4,7 +4,7 @@ import { FaRobot } from "react-icons/fa";
 
 export const Navbar = () => {
   return (
-    <nav className="font-serif flex items-center justify-between flex-wrap pb-4 pt-6 mb-12 border-b w-full max-w-screen-xl mx-auto border-[#3d3d3d]">
+    <nav className="font-serif flex items-center justify-between flex-wrap pb-4 pt-6 mb-12 border-b w-full max-w-screen-xl mx-auto border-tertiary">
       <div className="flex items-center text-xl space-x-4">
         <FaRobot className="text-2xl text-primary" />
         <h1>RoboHash Collection</h1>

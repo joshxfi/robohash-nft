@@ -1,10 +1,11 @@
 query getNftById($id: ID!) {
   nft(id: $id) {
-    collection_num 
+    img
     owner
     price
     views
     favorites
     description
+    collection_num 
   }
 }
