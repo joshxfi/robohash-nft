@@ -1,14 +1,24 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FaRobot } from "react-icons/fa";
 
 export const Navbar = () => {
+  const { push } = useRouter();
+
+  const handleBuy = () => {
+    const random = Math.floor(Math.random() * 99) + 1;
+    push(`/nft/${random}`);
+  };
+
   return (
     <nav className="font-serif flex items-center justify-between flex-wrap pb-4 pt-6 mb-12 border-b w-full max-w-screen-xl mx-auto border-tertiary">
-      <div className="flex items-center text-xl space-x-4">
-        <FaRobot className="text-2xl text-primary" />
-        <h1>RoboHash Collection</h1>
-      </div>
+      <Link href="/">
+        <a className="flex items-center text-xl space-x-2">
+          <FaRobot className="text-2xl text-primary" />
+          <h1>RoboHash Collection</h1>
+        </a>
+      </Link>
 
       <div className="space-x-8">
         <Link href="/">
@@ -27,6 +37,13 @@ export const Navbar = () => {
         >
           GitHub
         </a>
+
+        <button
+          onClick={handleBuy}
+          className="bg-primary px-8 py-2 rounded hover:bg-primary/90 transition-colors"
+        >
+          Buy NFT
+        </button>
       </div>
     </nav>
   );
