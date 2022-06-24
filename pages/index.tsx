@@ -11,15 +11,15 @@ const Home: NextPage = () => {
 
   return (
     <section>
-      <ul className="grid grid-cols-5 gap-2">
+      <ul className="xl:grid grid-cols-5 gap-2 flex flex-wrap justify-center">
         {data?.nfts.map((nft) => (
           <li
             key={nft.id}
-            className="w-[250px] bg-secondary rounded justify-self-center"
+            className="lg:w-[250px] w-[210px] bg-secondary rounded justify-self-center"
           >
             <Link href={`/nft/${encodeURIComponent(nft.id)}`}>
               <a>
-                <div className="relative h-[250px] w-[250px] ">
+                <div className="relative lg:h-[250px] lg:w-[250px] h-[200px] w-[200px]">
                   <Image
                     alt="nft art"
                     src={nft.img}

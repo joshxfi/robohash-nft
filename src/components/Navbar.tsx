@@ -12,15 +12,15 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="font-serif flex items-center justify-between flex-wrap pb-4 pt-6 mb-12 border-b w-full max-w-screen-xl mx-auto border-tertiary">
+    <nav className="font-serif flex items-center justify-between flex-col md:flex-row pb-4 pt-6 lg:mb-12 mb-8 border-b w-full max-w-screen-xl mx-auto border-tertiary px-10 xl:px-0">
       <Link href="/">
-        <a className="flex items-center text-xl space-x-2">
+        <a className="flex items-center text-xl space-x-2 mb-4 md:mb-0">
           <FaRobot className="text-2xl text-primary" />
           <h1>RoboHash Collection</h1>
         </a>
       </Link>
 
-      <div className="space-x-8">
+      <div className="space-x-8 text-sm md:text-base">
         <Link href="/">
           <a className="link">NFT</a>
         </Link>
@@ -40,7 +40,7 @@ export const Navbar = () => {
 
         <button
           onClick={handleBuy}
-          className="bg-primary px-8 py-2 rounded hover:bg-primary/90 transition-colors"
+          className="bg-primary px-8 font-mono py-2 rounded hover:bg-primary/90 transition-colors"
         >
           Buy NFT
         </button>
